@@ -1,0 +1,8 @@
+Python Snake Game
+by Blair Kiel
+
+1) Move snake.py to the desktop
+2) Open Terminal
+3) enter the code “cd Desktop”
+4) enter the code “python snake.py”
+5) Follow the instructions

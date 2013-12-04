@@ -38,7 +38,7 @@ def cFile():
 def rFile():
     fname = input("Enter a filename: ")
     fp =  open(fname, 'r')
-    data - fp.read()
+    data = fp.read()
     print(data)
     fp.close()
 
