@@ -16,23 +16,62 @@ def main():
                 choice = input("Enter j to move left, k to move right, i to move up and m to move down: ")
                 if (choice == 'j'):
                     os.system('clear')
+                    if (head == token):
+                        token = restartToken(board)
+                        print("head is token")
                     snake = snakeLeft(snake,board,token)
+                    head = snake[0]
                     displayMatrix(board)
-                    
+                    print(head)
+                    print(snake)
+                    print(token)
+                    if snakeDead(board, head, snake) == True:
+                        print("You Lose")
+                
                 elif (choice == 'k'):
                     os.system('clear')
+                    if (head == token):
+                        token = restartToken(board)   
+                        print("head is token")
                     snake = snakeRight(snake,board,token)
+                    head = snake[0]
                     displayMatrix(board)
+                    print(head)
+                    print(snake)
+                    print(token)
+                    if snakeDead(board, head, snake) == True:
+                        print("You Lose")
+                
 
                 elif (choice == 'i'):
                     os.system('clear')
+                    if (head == token):
+                        token = restartToken(board)
+                        print("head is token")
                     snake = snakeUp(snake,board,token)
+                    head = snake[0]
                     displayMatrix(board)
+                    print(head)
+                    print(snake)
+                    print(token)
+                    if snakeDead(board, head, snake) == True:
+                        print("You Lose")
+                
 
                 elif (choice == 'm'):
                     os.system('clear')
+                    if (head == token):
+                        token = restartToken(board)
+                        print("head is token")
                     snake = snakeDown(snake,board,token)
+                    head = snake[0]
                     displayMatrix(board)
+                    print(head)
+                    print(snake)
+                    print(token)
+                    if snakeDead(board, head, snake) == True:
+                        print("You Lose")
+                
 
                 else:
                     print("Penalty: Enter a valid move")
@@ -78,6 +117,7 @@ def snakeLeft(snake,matrix,token):
         matrix[newhead[0]][newhead[1]] = '@'
         matrix[snake[1][0]][snake[1][1]] = 'x'
         matrix[snake[len(snake)-1][0]][snake[len(snake)-1][1]] ='-'
+        head = [snake[0][0],snake[0][1]-1]
         token = restartToken(matrix)
     else:   
         snake.insert(0,newhead)
@@ -95,6 +135,7 @@ def snakeRight(snake,matrix,token):
         matrix[newhead[0]][newhead[1]] = '@'
         matrix[snake[1][0]][snake[1][1]] = 'x'
         matrix[snake[len(snake)-1][0]][snake[len(snake)-1][1]] ='-'
+        head = [snake[0][0],snake[0][1]+1]
         token = restartToken(matrix)
     else:
         snake.insert(0,newhead)
@@ -112,6 +153,7 @@ def snakeUp(snake,matrix,token):
         matrix[newhead[0]][newhead[1]] = '@'
         matrix[snake[1][0]][snake[1][1]] = 'x'
         matrix[snake[len(snake)-1][0]][snake[len(snake)-1][1]] ='-'
+        head = [snake[0][0]-1,snake[0][1]]
         token = restartToken(matrix)
     else:
         snake.insert(0,newhead)
@@ -129,6 +171,7 @@ def snakeDown(snake,matrix,token):
         matrix[newhead[0]][newhead[1]] = '@'
         matrix[snake[1][0]][snake[1][1]] = 'x'
         matrix[snake[len(snake)-1][0]][snake[len(snake)-1][1]] ='-'
+        head = [snake[0][0]+1,snake[0][1]]
         token = restartToken(matrix)
     else:
         snake.insert(0,newhead)
@@ -155,10 +198,10 @@ def placeToken(matrix):
 
 def restartToken(matrix):
 
-    token = "*"
+    tokenImage = "*"
     x = random.randint(0,29)
     y = random.randint(0,19)
-    matrix[y][x] = token
+    matrix[y][x] = tokenImage
     return [y,x]
 
 main()
