@@ -1,4 +1,6 @@
 from scanner import *
+import os
+import scanner
 
 def main():
     
@@ -7,7 +9,7 @@ def main():
 
 def scan():
     
-    s = Scanner("strings.txt")
+    s = Scanner(os.path.join(sys.path[0],"strings.txt"))
     array = []
     string = s.readstring()
     while(string != ""):

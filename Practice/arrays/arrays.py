@@ -4,7 +4,7 @@ def main ():
 
 def menu ():
     print("Stacks and Queues!\n")
-    myArray = eval(input("Enter an array:"))
+    myArray = eval(input("Enter an array of string[\'a\',\'b\',\'c\']: "))
     print("\n0: Stack")
     print("1: Queue")
 
@@ -31,11 +31,10 @@ def stack(arr, c):
     pop(arr, c)
     pop(arr, c)
     pop(arr, c)
-    print("\nStack after pop: ", arr)
+    print("\nStack after 3 pops: ", arr)
     print("Length of Stack: ", len(arr))
 
 
-rChoice()
 
 def queue(arr,c):
     print("\nInitial Queue:",arr)
@@ -49,11 +48,9 @@ def queue(arr,c):
     pop(arr, c)
     pop(arr, c)
     pop(arr, c)
-    print("\nQueue after pop:", arr)
+    print("\nQueue after 3 pops:", arr)
     print("Length of Queue: ", len(arr))
 
-rChoice()
- 
 def push(arr):
     item = eval(input("Item to push: "))
     arr.append(item)

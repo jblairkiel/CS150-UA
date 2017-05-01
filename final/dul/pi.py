@@ -1,5 +1,6 @@
-import sys
 from scanner import *
+import sys
+import os
 
 def main():
 
@@ -8,7 +9,7 @@ def main():
     
 def scan(name):
 
-    s = Scanner(name)
+    s = Scanner(os.path.join(sys.path[0],name))
     num = []
     token = s.readfloat()
     while (token != ""):

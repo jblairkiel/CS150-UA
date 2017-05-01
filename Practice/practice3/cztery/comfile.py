@@ -1,15 +1,15 @@
 from List import *
 from scanner import *
 import sys
+import os
 
 def main():
 
-    name = sys.argv[1:]
-    smallest(scan(name))
+    for name in sys.argv[1:]:
+        print(smallest(scan(name)))
 
 def scan(name):
-
-    s = Scanner(name)
+    s = Scanner(os.path.join(sys.path[0],name))
     a = s.readint()
     b = s.readint()
     c = s.readint()

@@ -1,4 +1,6 @@
 from scanner import *
+import sys
+import os
 
 def main():
 
@@ -7,7 +9,7 @@ def main():
 
 def scan():
 
-    s = Scanner("data.txt")
+    s = Scanner(os.path.join(sys.path[0],"data.txt"))
     a = s.readint()
     b = s.readint()
     c = s.readint()
@@ -20,11 +22,9 @@ def smallest(array):
 
     ismallest = 0
     for i in range(1, len(array), 1):
-        if (array[i] > array[ismallest]):
-            ismallest = array[i]
-        else:
-            ismallest = 
-    return ismallest
+        if (array[i] < array[ismallest]):
+            ismallest = i
+    return array[ismallest]
 
 
 

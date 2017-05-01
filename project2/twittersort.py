@@ -1,5 +1,6 @@
 from scanner import *
 import sys
+import os
 
 def main():
     
@@ -17,7 +18,7 @@ def main():
 
 def scanMain(filename):
 
-    s = Scanner(filename) 
+    s = Scanner(os.path.join(sys.path[0],filename))
     return scannerToArray(s)
     
 def recordToArray(s):

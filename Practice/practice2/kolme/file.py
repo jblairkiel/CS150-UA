@@ -1,6 +1,10 @@
 from scanner import *
+import os
+import sys
 def main():
     
+    items = scan()
+    print(items)
     pboolean = items[0]
     pstring =  items[1]
     pnumber = items[2]
@@ -8,12 +12,12 @@ def main():
     function(pboolean,pstring,pnumber)
 
 
-def scan(info):   
+def scan():   
 
-    s = Scanner(info.dat)
+    s = Scanner(os.path.join(sys.path[0],'info.dat'))
     items = []
     token = s.readtoken()
-    while (token != " "):
+    while (token != ""):
         items.append(token)
         token = s.readtoken()
     s.close()
@@ -21,10 +25,10 @@ def scan(info):
 
 def function(a, b, c):
 
-    if(a == True):
+    if(eval(a) == True):
         print(b)
         print('"',b,'"')
-    elif(a == False):
+    elif(eval(a) == False):
         print(2*c)
     else:
         print("Error!: Enter correct Boolean")
